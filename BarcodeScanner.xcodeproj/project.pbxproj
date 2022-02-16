@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4DD6619427BCB8FA0029EF92 /* BarcodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6619327BCB8FA0029EF92 /* BarcodeScannerApp.swift */; };
-		4DD6619627BCB8FA0029EF92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6619527BCB8FA0029EF92 /* ContentView.swift */; };
 		4DD6619827BCB8FB0029EF92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD6619727BCB8FB0029EF92 /* Assets.xcassets */; };
 		4DD6619B27BCB8FB0029EF92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD6619A27BCB8FB0029EF92 /* Preview Assets.xcassets */; };
+		4DD661A227BCB9F80029EF92 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD661A127BCB9F80029EF92 /* BarcodeScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4DD6619027BCB8FA0029EF92 /* BarcodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BarcodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD6619327BCB8FA0029EF92 /* BarcodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerApp.swift; sourceTree = "<group>"; };
-		4DD6619527BCB8FA0029EF92 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4DD6619727BCB8FB0029EF92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DD6619A27BCB8FB0029EF92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4DD661A127BCB9F80029EF92 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		4DD661A327BCBF110029EF92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +52,11 @@
 		4DD6619227BCB8FA0029EF92 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				4DD661A327BCBF110029EF92 /* Info.plist */,
 				4DD6619327BCB8FA0029EF92 /* BarcodeScannerApp.swift */,
-				4DD6619527BCB8FA0029EF92 /* ContentView.swift */,
 				4DD6619727BCB8FB0029EF92 /* Assets.xcassets */,
 				4DD6619927BCB8FB0029EF92 /* Preview Content */,
+				4DD661A127BCB9F80029EF92 /* BarcodeScannerView.swift */,
 			);
 			path = BarcodeScanner;
 			sourceTree = "<group>";
@@ -96,6 +98,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
+				ORGANIZATIONNAME = "Jack Cardinal & Co., Inc.";
 				TargetAttributes = {
 					4DD6618F27BCB8FA0029EF92 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -137,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DD6619627BCB8FA0029EF92 /* ContentView.swift in Sources */,
+				4DD661A227BCB9F80029EF92 /* BarcodeScannerView.swift in Sources */,
 				4DD6619427BCB8FA0029EF92 /* BarcodeScannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,9 +275,10 @@
 				DEVELOPMENT_TEAM = 27YE8B97A4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = BarcodeScanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -301,9 +305,10 @@
 				DEVELOPMENT_TEAM = 27YE8B97A4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = BarcodeScanner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
