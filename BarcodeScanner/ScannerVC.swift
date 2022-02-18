@@ -9,8 +9,14 @@
 import UIKit
 import AVFoundation
 
+enum CameraError: String {
+    case invalidDeviceInput = "Something wrong with the camera"
+    case invalidScanValue = "The barcode value is not valid"
+}
+
 protocol ScannerVCDelegate: AnyObject {
     func didFind(barcode: String)
+    func didSurfaceError(error: CameraError)
 }
 
 final class ScannerVC: UIViewController {
@@ -29,6 +35,7 @@ final class ScannerVC: UIViewController {
     
     private func setupCaptureSession() {
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
+            scannerDelegate?.didSurfaceError(error: .invalidDeviceInput)
             return
         }
         let videoInput: AVCaptureDeviceInput
@@ -42,6 +49,7 @@ final class ScannerVC: UIViewController {
         if captureSession.canAddInput(videoInput) {
             captureSession.addInput(videoInput)
         } else {
+            scannerDelegate?.didSurfaceError(error: .invalidDeviceInput)
             return
         }
         
@@ -52,6 +60,7 @@ final class ScannerVC: UIViewController {
             metaDataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metaDataOutput.metadataObjectTypes = [.ean8, .ean13]
         } else {
+            scannerDelegate?.didSurfaceError(error: .invalidScanValue)
             return
         }
         
@@ -68,12 +77,15 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard let object = metadataObjects.first else {
+            scannerDelegate?.didSurfaceError(error: .invalidScanValue)
             return
         }
         guard let machineReadableObject = object as? AVMetadataMachineReadableCodeObject else {
+            scannerDelegate?.didSurfaceError(error: .invalidScanValue)
             return
         }
         guard let barcode = machineReadableObject.stringValue else {
+            scannerDelegate?.didSurfaceError(error: .invalidScanValue)
             return
         }
         
