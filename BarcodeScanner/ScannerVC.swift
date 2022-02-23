@@ -30,6 +30,21 @@ final class ScannerVC: UIViewController {
         self.scannerDelegate = scannerDelegate
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupCaptureSession()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        guard let previewLayer = previewLayer else {
+            scannerDelegate?.didSurfaceError(error: .invalidDeviceInput)
+            return
+        }
+        previewLayer.frame = view.layer.bounds
+    }
+    
     //required for storyboards only
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
@@ -68,7 +83,7 @@ final class ScannerVC: UIViewController {
         previewLayer!.videoGravity = .resizeAspectFill
         view.layer.addSublayer(previewLayer!)
         
-        captureSession.stopRunning()
+        captureSession.startRunning()
     }
     
 }
@@ -88,7 +103,7 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
             scannerDelegate?.didSurfaceError(error: .invalidScanValue)
             return
         }
-        
+        captureSession.stopRunning()
         scannerDelegate?.didFind(barcode: barcode)
     }
     
