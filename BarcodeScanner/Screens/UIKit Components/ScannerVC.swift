@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 
 enum CameraError: String {
-    case invalidDeviceInput = "Something wrong with the camera"
-    case invalidScanValue = "The barcode value is not valid"
+    case invalidDeviceInput
+    case invalidScanValue
 }
 
 protocol ScannerVCDelegate: AnyObject {
@@ -103,7 +103,7 @@ extension ScannerVC: AVCaptureMetadataOutputObjectsDelegate {
             scannerDelegate?.didSurfaceError(error: .invalidScanValue)
             return
         }
-        captureSession.stopRunning()
+        //captureSession.stopRunning()
         scannerDelegate?.didFind(barcode: barcode)
     }
     
